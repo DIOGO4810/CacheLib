@@ -75,12 +75,12 @@ build=yes
 source=yes
 debug_build=
 build_tests=
+JOBS=
 show_help=
-many_jobs=
 verbose=
 PREFIX="$PWD/opt/cachelib/"
 
-while getopts :BSdhijtvp: param
+while getopts :BSdhij:tvp: param
 do
   case $param in
     i) install=yes ;;
@@ -89,7 +89,7 @@ do
     h) show_help=yes ;;
     d) debug_build=yes ;;
     v) verbose=yes ;;
-    j) many_jobs=yes ;;
+    j) JOBS= $OPTARG;;
     t) build_tests=yes ;;
     p) PREFIX=$OPTARG ;;
     ?) die "unknown option. See -h for help."
@@ -248,6 +248,7 @@ case "$1" in
   cachelib)
     NAME=cachelib
     SRCDIR=cachelib
+    cmake_custom_params="-DBUILD_SHARED_LIBS=ON"
     if test "$build_tests" = "yes" ; then
         cmake_custom_params="$cmake_custom_params -DBUILD_TESTS=ON"
     else
@@ -271,8 +272,7 @@ test "$debug_build" \
 MAKE_PARAMS=
 test "$verbose" && MAKE_PARAMS="$MAKE_PARAMS VERBOSE=YES"
 
-JOBS=$(nproc --ignore 1)
-test "$many_jobs" && MAKE_PARAMS="$MAKE_PARAMS -j$JOBS"
+MAKE_PARAMS="$MAKE_PARAMS -j$JOBS"
 
 
 
