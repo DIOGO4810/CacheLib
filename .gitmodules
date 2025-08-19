@@ -3,7 +3,7 @@
 	url = https://github.com/facebook/fbthrift
 [submodule "folly"]
 	path = cachelib/external/folly
-	url = https://github.com/facebook/folly
+	url = git@github.com:DIOGO4810/folly.git
 [submodule "fizz"]
 	path = cachelib/external/fizz
 	url = https://github.com/facebookincubator/fizz
