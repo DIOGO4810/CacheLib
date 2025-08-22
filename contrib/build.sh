@@ -51,6 +51,11 @@ detect_os()
   test -n "$DETECTED" || die "failed to detect operating system type"
 }
 
+echo "Updating git submodules..."
+git submodule sync --recursive
+git submodule update --init --recursive --force
+
+
 build_debian_10()
 {
   ./contrib//prerequisites-debian10.sh \

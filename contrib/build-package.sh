@@ -24,8 +24,7 @@
 ## is closely controlled, an explicit 'shellcheck disable SC2086'
 ## was added to the relevant lines.
 
-git submodule sync
-git submodule update --init --recursive
+
 
 set -u
 
@@ -334,9 +333,9 @@ if test "$source" ; then
 
   fi
 
-  if test "$update_submodules" ; then
-    ./contrib/update-submodules.sh || die "failed to update git-submodules"
-  fi
+  # if test "$update_submodules" ; then
+  #   ./contrib/update-submodules.sh || die "failed to update git-submodules"
+  # fi
 fi
 
 
