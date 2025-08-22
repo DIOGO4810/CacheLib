@@ -24,6 +24,9 @@
 ## is closely controlled, an explicit 'shellcheck disable SC2086'
 ## was added to the relevant lines.
 
+git submodule sync
+git submodule update --init --recursive
+
 set -u
 
 die()
