@@ -89,7 +89,7 @@ do
     h) show_help=yes ;;
     d) debug_build=yes ;;
     v) verbose=yes ;;
-    j) JOBS= $OPTARG;;
+    j) JOBS=$OPTARG;;
     t) build_tests=yes ;;
     p) PREFIX=$OPTARG ;;
     ?) die "unknown option. See -h for help."
